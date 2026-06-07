@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TravelEase — One Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent1:#111827; --cta1:#ff7f50; --cta2:#ff3d00;
+    }
+    body{font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:#f4f6f8; color:#111;}
+    a { text-decoration:none; }
+     
+
+/* NAV */
+    .navbar{transition:background .3s, box-shadow .3s, padding .2s; padding:18px 1rem; background:transparent;}
+    .navbar.scrolled{background:#5f5656; box-shadow:0 6px 20px rgba(0, 0, 0, 0.06); padding:10px 1rem;}
+
+    .navbar :hover{color :var(--cta2)}
+     /* HERO */
+    
+    .hero {
+            height: 100vh;
+            width: 95vw;
+            background: url(https://unsplash.com/photos/bpR3LOdhMk0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzMyfHxsb25kb258ZW58MHx8fHwxNzY0MTU4NjUwfDA&force=true) center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: rgb(104, 93, 93);
+            text-align: center;
+            border-radius: 1rem;
+            margin-left: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    .hero-left{max-width:640px;}
+    .hero h1{font-size:38px; margin-bottom:8px;}
+    .hero p{color:#f3f3f3;}
+    
+    /* Main Button */
+.btn-animate {
+  position: relative;
+  display: inline-block;
+  padding: 12px 40px;
+  background: #042377;
+  color: #03e9f4;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 1rem;
+  text-decoration: none;
+}
+
+.btn-animate:hover {
+  background: #03e9f4;
+  color: #050505;
+  box-shadow: 0 0 100px #53eaf1;
+}
+
+/* Animated Border Spans */
+.btn-animate span {
+  position: absolute;
+  display: block;
+}
+
+/* Top Border */
+.btn-animate span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #03e9f4);
+  animation: move1 1s linear infinite;
+}
+
+/* Right Border */
+.btn-animate span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #03e9f4);
+  animation: move2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+/* Bottom Border */
+.btn-animate span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to left, transparent, #03e9f4);
+  animation: move3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+/* Left Border */
+.btn-animate span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, #03e9f4);
+  animation: move4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+/* Animations */
+@keyframes move1 {
+  0% { left: -100%; }
+  50%,100% { left: 100%; }
+}
+@keyframes move2 {
+  0% { top: -100%; }
+  50%,100% { top: 100%; }
+}
+@keyframes move3 {
+  0% { right: -100%; }
+  50%,100% { right: 100%; }
+}
+@keyframes move4 {
+  0% { bottom: -100%; }
+  50%,100% { bottom: 100%; }
+}
+
+/* ===============================
+   TRIP CARDS GRID
+================================*/
+.trips {
+    padding: 50px 6%;
+}
+
+.trip-card {
+    border: none;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.trip-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.trip-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.trip-card:hover img {
+    transform: scale(1.08);
+}
+
+.price-badge {
+    background: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+ 
+  /* ============================
+   BOOKING FORM SECTION
+===============================*/
+.booking-wrap {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  animation: fadeInSection 1s ease forwards;
+}
+
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-card {
+  max-width: 950px;
+  margin: auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  animation: cardLift 1.2s ease forwards;
+}
+
+@keyframes cardLift {
+  from { opacity: 0; transform: scale(.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.booking-top h1 {
+  font-weight: 700;
+  color: #333;
+  animation: fadeDown 0.8s ease forwards;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Inputs */
+.form-control, .form-select, textarea {
+  border-radius: 10px;
+  transition: all .3s ease;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: #00d9ff !important;
+  box-shadow: 0 0 8px #00d9ff4a !important;
+}
+
+/* ============================
+   SUBMIT BUTTON ANIMATION
+===============================*/
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #00d9ff, #007bff);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: .3s;
+}
+
+/* Hover glow */
+.submit-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px #00c6ffb6;
+}
+
+/* Ripple Animation */
+.submit-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.submit-btn:active::after {
+  animation: ripple 0.5s ease-out;
+}
+
+@keyframes ripple {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0.7;
+  }
+  to {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+
+
+    /* CAROUSEL */
+    .carousel-inner img{border-radius:14px; object-fit:cover; height:80vh; width:100%;}
+    /* Carousel Animations */
+        .carousel-item {
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .carousel-caption {
+            background: rgba(241, 233, 233, 0.6);
+            border-radius: 10px;
+            color: #030436;
+            padding: 20px;
+            bottom: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .carousel-item.active .carousel-caption {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+         @keyframes heroGradient {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.7; }
+        }
+         
+        /* Section Spacing */
+        section {
+            padding: 80px 0;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    /* DESTINATIONS FILTER */
+    .filter-btn{margin:0 6px 8px 0;}
+
+    /* FAQ */
+    .faq{padding:28px 6%;}
+
+
+    /* Back to top */
+    #backTop{position:relative; display:flex; align-items:center; justify-content:center; width:48px; margin-left:5rem; border-radius:10px; background:#1d0799; color:#4bd8e2; cursor:pointer; box-shadow:0 12px 30px rgba(2,6,23,.3);}
+    .backWrap{display:flex; justify-content:center; margin:18px 0;}
+
+
+    /* Footer */
+    footer{padding:30px 6%; background:#0b0b0c; color:#fff; text-align:center;}
+    .social{margin-top:12px;}
+    .social a{color:#423e3e; font-size:22px; margin:0 8px; transition:transform .18s, color .18s;}
+    .social a:hover{transform:translateY(-4px); color:var(--cta1);}
+
+
+    /* fade-in */
+    .fade-in{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease;}
+    .fade-in.visible{opacity:1; transform:none;}
+
+    
+    @media (max-width:900px){ .hero{flex-direction:column-reverse; padding:28px 4%;} .hero-image img{width:100%;} }
+    @media (max-width:560px){{display:none;} }
+
+ 
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar fixed-top navbar-expand-lg">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand fw-bold" href="#home">
+        <i class="bi bi-passport"></i>TravelEase</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#trips">Trips</a></li>
+          <li class="nav-item"><a class="nav-link" href="#book">Book Now</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      <main class="mt-5 pt-4" id="home"></main>
+    <!-- HERO -->
+    <section class="hero fade-in" style="hero-section">
+      <div class="hero-left">
+        <h1>Explore the world — make memories that last</h1>
+        <p>Hand-picked experiences, transparent prices and flexible booking. Find your next escape.</p>
+        
+        <a href="#book" class="btn-animate">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  Book Your Trip
+</a>
+</div>
+      </div>
+    </section>
+
+    <!-- TRIPS (9 cards) -->
+    <section id="trips" class="trips fade-in">
+      <div class="container-lg">
+        <div class="row mb-5">
+          <div class="col text-center">
+       <h2 class="display-5 fw-bold fade-in">Featured Trips</h2>
+                    <p class="text-muted fade-in">Check out our most popular destinations</p>
+                    </div>
+                    </div>
+        
+         <div class="row g-4">
+      <div class="col-md-4">
+            <div class="trip-card card" data-type="beach">
+              <img src="https://unsplash.com/photos/DW2u6LE1p-I/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fG1hbGRpdmVzfGVufDB8fHx8MTc2NDEyNTI1MHww&force=true" alt="Maldives">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h5 class="mb-1">Maldives</h5>
+                    <small class="text-muted">Beach • 5 days</small>
+                  </div>
+                  <div class="text-end">
+                    <div class="price-badge">$800</div>
+                    <button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-1">View Details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="beach">
+              <img src="https://unsplash.com/photos/v7i1npvQ4rc/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTUyfHxCYWxpfGVufDB8fHx8MTc2NDIwNTcwMXww&force=true" alt="Bali">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Bali</h5><small class="text-muted">Beach • 7 days</small></div>
+                  <div class="text-end"><div class="price-badge">$650</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-2">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="mountain">
+              <img src="https://unsplash.com/photos/uAcg4PZ_f-o/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8U3dpc3MlMjBBbHBzfGVufDB8fHx8MTc2NDE0NDc1N3ww&force=true" alt="Swiss Alps">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Swiss Alps</h5><small class="text-muted">Mountain • 6 days</small></div>
+                  <div class="text-end"><div class="price-badge">$920</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-3">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="city">
+              <img src="https://unsplash.com/photos/PULWFiQi2aU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NDB8fHBhcmlzfGVufDB8fHx8MTc2NDE1MTAyOHww&force=true" alt="Paris">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Paris</h5><small class="text-muted">City • 4 days</small></div>
+                  <div class="text-end"><div class="price-badge">$720</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-4">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="mountain">
+              <img src="https://unsplash.com/photos/Gh9l3kG14CU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzF8fE5lcGFsJTIwVHJla3xlbnwwfHx8fDE3NjQyMDU5NzZ8MA&force=true" alt="Nepal Trek">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Nepal Trek</h5><small class="text-muted">Mountain • 9 days</small></div>
+                  <div class="text-end"><div class="price-badge">$540</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-5">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="beach">
+              <img src="https://unsplash.com/photos/Of_u2aPwugw/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8UGh1a2V0fGVufDB8fHx8MTc2NDE0MjExOXww&force=true" alt="Phuket">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Phuket</h5><small class="text-muted">Beach • 5 days</small></div>
+                  <div class="text-end"><div class="price-badge">$420</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-6">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="city">
+              <img src="https://unsplash.com/photos/SVVTZtTGyaU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fE5ldyUyMFlvcmt8ZW58MHx8fHwxNzY0MjAxOTE4fDA&force=true" alt="New York">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">New York</h5><small class="text-muted">City • 5 days</small></div>
+                  <div class="text-end"><div class="price-badge">$840</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-7">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="city">
+              <img src="https://unsplash.com/photos/NiyRORf8d8I/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8N3x8VG9reW98ZW58MHx8fHwxNzY0MjA2NTc4fDA&force=true" alt="Tokyo">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Tokyo</h5><small class="text-muted">City • 6 days</small></div>
+                  <div class="text-end"><div class="price-badge">$780</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-8">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="mountain">
+              <img src="https://unsplash.com/photos/3UY5DMqdJ7o/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Njd8fFBhdGFnb25pYXxlbnwwfHx8fDE3NjQyMDY3MTd8MA&force=true" alt="Patagonia">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Patagonia</h5><small class="text-muted">Mountain • 8 days</small></div>
+                  <div class="text-end"><div class="price-badge">$980</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-9">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+    </section>
+
+
+
+     <!-- Destinations Section -->
+    <section id="destinations">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col text-center">
+                    <h2 class="display-5 fw-bold fade-in">Popular and Beautiful Places</h2>
+                    <p class="text-muted fade-in">Find your perfect getaway</p>
+                </div>
+            </div>
+    <!-- CAROUSEL -->
+    <div id="container my-5 fade-in">
+      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active"><img src="https://unsplash.com/photos/DW2u6LE1p-I/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fG1hbGRpdmVzfGVufDB8fHx8MTc2NDEyNTI1MHww&force=true" class="d-block w-100" alt="slide1">
+          <div class="carousel-caption" style="background-color: transparent;">
+                                    <h3>Exotic Beach Getaway</h3>
+                                    <p>Discover pristine beaches and turquoise waters</p>
+                                </div></div>
+          <div class="carousel-item"><img src="https://unsplash.com/photos/v7i1npvQ4rc/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTUyfHxCYWxpfGVufDB8fHx8MTc2NDIwNTcwMXww&force=true" class="d-block w-100" alt="slide2">
+            <div class="carousel-caption" style="background-color: transparent;">
+                                    <h3>Exotic Beach Getaway</h3>
+                                    <p>Discover pristine beaches and turquoise waters</p>
+                                </div></div>
+          <div class="carousel-item"><img src="https://unsplash.com/photos/uAcg4PZ_f-o/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8U3dpc3MlMjBBbHBzfGVufDB8fHx8MTc2NDE0NDc1N3ww&force=true" class="d-block w-100" alt="slide3">
+            <div class="carousel-caption" style="background-color: transparent;">
+                                    <h3>Mountain Adventure</h3>
+                                    <p>Experience breathtaking views and thrilling hikes</p>
+                                </div></div>
+          <div class="carousel-item"><img src="https://unsplash.com/photos/PULWFiQi2aU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NDB8fHBhcmlzfGVufDB8fHx8MTc2NDE1MTAyOHww&force=true" class="d-block w-100" alt="slide3">
+            <div class="carousel-caption" style="background-color: transparent;">
+                                    <h3>Forest Retreat</h3>
+                                    <p>Reconnect with nature in peaceful green forests</p>
+                                </div></div>
+          <div class="carousel-item"><img src="https://unsplash.com/photos/Gh9l3kG14CU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzF8fE5lcGFsJTIwVHJla3xlbnwwfHx8fDE3NjQyMDU5NzZ8MA&force=true" class="d-block w-100" alt="slide3">
+            <div class="carousel-caption" style="background-color: transparent;">
+                                    <h3>Mountain Adventure</h3>
+                                    <p>Experience breathtaking views and thrilling hikes</p>
+                                </div></div>
+          <div class="carousel-item"><img src="https://unsplash.com/photos/Of_u2aPwugw/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8UGh1a2V0fGVufDB8fHx8MTc2NDE0MjExOXww&force=true" class="d-block w-100" alt="slide3">
+            <div class="carousel-caption" style="background-color: transparent;">
+                                    <h3>Exotic Beach Getaway</h3>
+                                    <p>Discover pristine beaches and turquoise waters</p>
+                                </div></div>
+          <div class="carousel-item"><img src="https://unsplash.com/photos/SVVTZtTGyaU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fE5ldyUyMFlvcmt8ZW58MHx8fHwxNzY0MjAxOTE4fDA&force=true" class="d-block w-100" alt="slide3">
+          <div class="carousel-caption" style="background-color: transparent;">
+                                   <h3>Forest Retreat</h3>
+                                    <p>Reconnect with nature in peaceful green forests</p>
+                                </div></div>
+                              </div>
+          <div class="carousel-item"><img src="https://unsplash.com/photos/NiyRORf8d8I/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8N3x8VG9reW98ZW58MHx8fHwxNzY0MjA2NTc4fDA&force=true" class="d-block w-100" alt="slide3">
+            <div class="carousel-caption" style="background-color: transparent;">
+                                    <h3>Forest Retreat</h3>
+                                    <p>Reconnect with nature in peaceful green forests</p>
+                                </div></div>
+          <div class="carousel-item"><img src="https://unsplash.com/photos/3UY5DMqdJ7o/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Njd8fFBhdGFnb25pYXxlbnwwfHx8fDE3NjQyMDY3MTd8MA&force=true" class="d-block w-100" alt="slide3">
+            <div class="carousel-caption" style="background-color: transparent;">
+                                    <h3>Mountain Adventure</h3>
+                                    <p>Experience breathtaking views and thrilling hikes</p>
+                                </div></div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+      </div>
+    </section>
+        
+
+
+
+    <!-- DESTINATIONS (filter buttons) -->
+    <section id="destinations" class="container my-5 fade-in">
+    
+      <div class="text-center mb-4">
+          <button class="btn btn-outline-primary filter-btn" data-filter="all">All</button>
+          <button class="btn btn-outline-primary filter-btn" data-filter="beach">Beach</button>
+          <button class="btn btn-outline-primary filter-btn" data-filter="mountain">Mountain</button>
+          <button class="btn btn-outline-primary filter-btn" data-filter="city">City</button>
+      </div>
+      <h2 class="display-5 fw-bold fade-in">Explore Our Trips</h2>
+      <p class="text-center text-muted">Click a filter to show only those trips (client-side using jQuery).</p>
+      <div class="row g-4">
+      <div class="col-md-4">
+            <div class="trip-card card" data-type="beach">
+              <img src="https://unsplash.com/photos/DW2u6LE1p-I/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fG1hbGRpdmVzfGVufDB8fHx8MTc2NDEyNTI1MHww&force=true" alt="Maldives">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h5 class="mb-1">Maldives</h5>
+                    <small class="text-muted">Beach • 5 days</small>
+                  </div>
+                  <div class="text-end">
+                    <div class="price-badge">$800</div>
+                    <button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-1">View Details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="beach">
+              <img src="https://unsplash.com/photos/v7i1npvQ4rc/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTUyfHxCYWxpfGVufDB8fHx8MTc2NDIwNTcwMXww&force=true" alt="Bali">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Bali</h5><small class="text-muted">Beach • 7 days</small></div>
+                  <div class="text-end"><div class="price-badge">$650</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-2">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="mountain">
+              <img src="https://unsplash.com/photos/uAcg4PZ_f-o/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8U3dpc3MlMjBBbHBzfGVufDB8fHx8MTc2NDE0NDc1N3ww&force=true" alt="Swiss Alps">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Swiss Alps</h5><small class="text-muted">Mountain • 6 days</small></div>
+                  <div class="text-end"><div class="price-badge">$920</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-3">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="city">
+              <img src="https://unsplash.com/photos/PULWFiQi2aU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NDB8fHBhcmlzfGVufDB8fHx8MTc2NDE1MTAyOHww&force=true" alt="Paris">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Paris</h5><small class="text-muted">City • 4 days</small></div>
+                  <div class="text-end"><div class="price-badge">$720</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-4">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="mountain">
+              <img src="https://unsplash.com/photos/Gh9l3kG14CU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzF8fE5lcGFsJTIwVHJla3xlbnwwfHx8fDE3NjQyMDU5NzZ8MA&force=true" alt="Nepal Trek">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Nepal Trek</h5><small class="text-muted">Mountain • 9 days</small></div>
+                  <div class="text-end"><div class="price-badge">$540</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-5">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="beach">
+              <img src="https://unsplash.com/photos/Of_u2aPwugw/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8UGh1a2V0fGVufDB8fHx8MTc2NDE0MjExOXww&force=true" alt="Phuket">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Phuket</h5><small class="text-muted">Beach • 5 days</small></div>
+                  <div class="text-end"><div class="price-badge">$420</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-6">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="city">
+              <img src="https://unsplash.com/photos/SVVTZtTGyaU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fE5ldyUyMFlvcmt8ZW58MHx8fHwxNzY0MjAxOTE4fDA&force=true" alt="New York">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">New York</h5><small class="text-muted">City • 5 days</small></div>
+                  <div class="text-end"><div class="price-badge">$840</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-7">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="city">
+              <img src="https://unsplash.com/photos/NiyRORf8d8I/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8N3x8VG9reW98ZW58MHx8fHwxNzY0MjA2NTc4fDA&force=true" alt="Tokyo">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Tokyo</h5><small class="text-muted">City • 6 days</small></div>
+                  <div class="text-end"><div class="price-badge">$780</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-8">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="col-md-4">
+            <div class="trip-card card" data-type="mountain">
+              <img src="https://unsplash.com/photos/3UY5DMqdJ7o/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Njd8fFBhdGFnb25pYXxlbnwwfHx8fDE3NjQyMDY3MTd8MA&force=true" alt="Patagonia">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div><h5 class="mb-1">Patagonia</h5><small class="text-muted">Mountain • 8 days</small></div>
+                  <div class="text-end"><div class="price-badge">$980</div><button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-9">View Details</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+    </section>
+
+
+
+    <!-- CONTACT / BOOKING FORM -->
+    <section class="booking-wrap fade-in" id="book">
+     
+      <div class="booking-card">
+        <div class="booking-top">
+         
+          <div class="flex-fill">
+            <h1 class="text-center mb-4">Book Your Trip</h1>
+            <form id="bookingForm" class="form-grid">
+              <div class="row g-3">
+                <div class="col-md-6"><label class="form-label">Full Name *</label><input name="name" required class="form-control" placeholder="Full name"></div>
+                <div class="col-md-6"><label class="form-label">Email Address *</label><input         name="email" type="email" required class="form-control" placeholder="you@example.com"></div>
+                <div class="col-md-6"><label class="form-label">Destination *</label><select name="destination" required class="form-select"><option value="">Select Destination</option><option>Maldives</option><option>Bali</option><option>Swiss Alps</option><option>Paris</option><option>Tokyo</option><option>patagonia</option><option>Phoket</option><option>New York</option><option>Nepal Trek</option></select></div>
+                <div class="col-md-6"><label class="form-label">Departure Date *</label><input name="date" type="date" required class="form-control"></div>
+                <div class="col-md-6"><label class="form-label">Number of Travelers *</label><input name="travellers" type="number" min="1" required class="form-control" placeholder="e.g., 2"></div>
+                <div class="col-md-6"><label class="form-label">Duration (Days) *</label><select name="duration" required class="form-select"><option value="">Select Duration</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></div>
+                <div class="col-12"><label class="form-label">Special Requests</label><textarea name="notes" rows="3" class="form-control" placeholder="Any special requirements..."></textarea></div>
+                <div class="col-12"><button type="submit" class="submit-btn">Submit Booking</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+     <!-- FAQs Section -->
+    <section id="faqs" class="mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="text-center mb-5 fade-in">Frequently Asked Questions</h1>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item fade-in">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How can I modify my booking?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Contact support at least 24 hours before departure to modify your booking.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item fade-in">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What if I need to cancel my trip?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Cancellation policies vary by package. Please refer to your booking confirmation for specific details. We recommend purchasing travel insurance for added protection.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item fade-in">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Do I get travel insurance?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Travel insurance is available as an optional add-on during the booking process. We highly recommend it for comprehensive coverage during your travels.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item fade-in">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Can I change my travel dates later?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Date changes are subject to availability and may incur change fees. Please contact our support team for assistance with date modifications.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item fade-in">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Are meals included in my package?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Meal inclusions vary by package. Please check the specific details of your selected trip. Most packages include breakfast, and some include additional meals as specified.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BACK TO TOP (placed before footer) -->
+    <div class="backWrap fade-in">
+      <div id="backTop" title="Back to top"><i class="fa fa-chevron-up"></i></div>
+    </div>
+
+  </main>
+
+   <!-- Footer -->
+  <footer>
+    <strong>TravelEase</strong><div class="small text-muted" style="color:#e7ebf5">Your travel partner</div>
+    <div class="social">
+      <a href="https://facebook.com" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.google.com" title="Google"><i class="fab fa-google"></i></a>
+      <a href="https://instagram.com" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+
+  <!-- MODALS (1..9) - each shows the same pattern: image + details -->
+  <!-- Modal 1 -->
+  <div class="modal fade" id="modal-1" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/DW2u6LE1p-I/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fG1hbGRpdmVzfGVufDB8fHx8MTc2NDEyNTI1MHww&force=true" class="w-40" class="h-30" style="border-radius:18px 18px 0 0;">
+    <div class="p-3"><h4>Maldives — 5 Days</h4><p>All inclusive resort, transfers & breakfast. Perfect for couples & beaches.</p>
+      <p>Experience the ultimate tropical getaway with white sands and crystal clear blue waters.</p>
+                    <ul>
+                        <li>5 days / 4 nights all-inclusive</li>
+                        <li>Private beach access</li>
+                        <li>Water sports equipment included</li>
+                        <li>Beachfront villa accommodation</li>
+                        <li>Daily tropical breakfast</li>
+                    </ul><div><strong>Price:</strong> $800 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- Modal 2 -->
+  <div class="modal fade" id="modal-2" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/v7i1npvQ4rc/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTUyfHxCYWxpfGVufDB8fHx8MTc2NDIwNTcwMXww&force=true" class="w-60" style="border-radius:12px 12px 0 0;">
+    <div class="p-3"><h4>Bali — 7 Days</h4><p>Beach & culture package with guided tours and transfers.</p>
+      <p>Private island experience with exclusive beach access and personalized services.</p>
+                    <ul>
+                        <li>Private island accommodation</li>
+                        <li>Exclusive beach access</li>
+                        <li>Personal butler service</li>
+                        <li>Gourmet dining experiences</li>
+                        <li>Water sports and activities</li>
+                    </ul><div><strong>Price:</strong> $650 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- Modal 3 -->
+  <div class="modal fade" id="modal-3" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/uAcg4PZ_f-o/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8U3dpc3MlMjBBbHBzfGVufDB8fHx8MTc2NDE0NDc1N3ww&force=true" class="w-100" style="border-radius:12px 12px 0 0;">
+    <div class="p-3"><h4>Swiss Alps — 6 Days</h4><p>Mountain adventure with scenic train rides and cozy chalet stays.</p> <p>Serene valley retreat with hiking and wildlife watching in peaceful surroundings.</p>
+                    <ul>
+                        <li>Valley lodge accommodation</li>
+                        <li>Guided nature walks</li>
+                        <li>Wildlife photography opportunities</li>
+                        <li>Organic farm-to-table meals</li>
+                        <li>Stargazing sessions</li>
+                    </ul>
+                    <div><strong>Price:</strong> $920 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- Modal 4 -->
+  <div class="modal fade" id="modal-4" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/PULWFiQi2aU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NDB8fHBhcmlzfGVufDB8fHx8MTc2NDE1MTAyOHww&force=true" class="w-100" style="border-radius:12px 12px 0 0;">
+    <div class="p-3"><h4>Paris — 4 Days</h4><p>City break with museums, Seine cruise and local cuisine.</p>
+      <p>Immerse yourself in the vibrant energy of a bustling metropolitan city with rich cultural experiences.</p>
+                    <ul>
+                        <li>4-day city exploration package</li>
+                        <li>Central hotel accommodation</li>
+                        <li>Guided city tours</li>
+                        <li>Museum and attraction passes</li>
+                        <li>Local culinary experiences</li>
+                    </ul><div><strong>Price:</strong> $720 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- Modal 5 -->
+  <div class="modal fade" id="modal-5" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/Gh9l3kG14CU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzF8fE5lcGFsJTIwVHJla3xlbnwwfHx8fDE3NjQyMDU5NzZ8MA&force=true" class="w-100" style="border-radius:12px 12px 0 0;">
+    <div class="p-3"><h4>Nepal Trek — 9 Days</h4><p>Trek with local guides, village stays and mountain views.</p>
+       <p>Winter wonderland with skiing and snowboarding adventures in pristine snow conditions.</p>
+                    <ul>
+                        <li>Ski resort accommodation</li>
+                        <li>Ski and snowboard equipment rental</li>
+                        <li>Professional instructors</li>
+                        <li>Hot chocolate and apres-ski activities</li>
+                        <li>Snowshoeing and snowmobiling</li>
+                    </ul><div><strong>Price:</strong> $540 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- Modal 6 -->
+  <div class="modal fade" id="modal-6" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/Of_u2aPwugw/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8UGh1a2V0fGVufDB8fHx8MTc2NDE0MjExOXww&force=true" class="w-100" style="border-radius:12px 12px 0 0;">
+    <div class="p-3"><h4>Phuket — 5 Days</h4><p>Beach resort, island hopping and local food tours.</p>
+       <p>Urban experience with beautiful waterfront views and beaches in a coastal city setting.</p>
+                    <ul>
+                        <li>Waterfront accommodation</li>
+                        <li>Harbor cruises</li>
+                        <li>Beach access</li>
+                        <li>Seafood dining</li>
+                        <li>Maritime museum visits</li>
+                    </ul>
+                    <div><strong>Price:</strong> $420 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- Modal 7 -->
+  <div class="modal fade" id="modal-7" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/SVVTZtTGyaU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fE5ldyUyMFlvcmt8ZW58MHx8fHwxNzY0MjAxOTE4fDA&force=true" class="w-100" style="border-radius:12px 12px 0 0;">
+    <div class="p-3"><h4>New York — 5 Days</h4><p>City trip with Broadway, museums and skyline view.</p>
+       <p>Skyscrapers, nightlife, and contemporary urban experiences in a modern metropolis.</p>
+                    <ul>
+                        <li>Skyline viewing experiences</li>
+                        <li>Modern art gallery visits</li>
+                        <li>Nightlife and entertainment</li>
+                        <li>Shopping district access</li>
+                        <li>Contemporary dining</li>
+                    </ul><div>
+                      <strong>Price:</strong> $840 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- Modal 8 -->
+  <div class="modal fade" id="modal-8" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/NiyRORf8d8I/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8N3x8VG9reW98ZW58MHx8fHwxNzY0MjA2NTc4fDA&force=true" class="w-100" style="border-radius:12px 12px 0 0;">
+    <div class="p-3"><h4>Tokyo — 6 Days</h4><p>Culture & tech tour with food experiences and city tours.</p>
+       <p>Skyscrapers, nightlife, and contemporary urban experiences in a modern metropolis.</p>
+                    <ul>
+                        <li>Skyline viewing experiences</li>
+                        <li>Modern art gallery visits</li>
+                        <li>Nightlife and entertainment</li>
+                        <li>Shopping district access</li>
+                        <li>Contemporary dining</li>
+                    </ul><div><strong>Price:</strong> $780 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- Modal 9 -->
+  <div class="modal fade" id="modal-9" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <img src="https://unsplash.com/photos/3UY5DMqdJ7o/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Njd8fFBhdGFnb25pYXxlbnwwfHx8fDE3NjQyMDY3MTd8MA&force=true" class="w-100" style="border-radius:12px 12px 0 0;">
+    <div class="p-3"><h4>Patagonia — 8 Days</h4><p>Wilderness & hiking with guided camps and scenic routes.</p>
+      <p>Winter wonderland with skiing and snowboarding adventures in pristine snow conditions.</p>
+                    <ul>
+                        <li>Ski resort accommodation</li>
+                        <li>Ski and snowboard equipment rental</li>
+                        <li>Professional instructors</li>
+                        <li>Hot chocolate and apres-ski activities</li>
+                        <li>Snowshoeing and snowmobiling</li>
+                    </ul>
+                    <div><strong>Price:</strong> $980 Per Person</div></div>
+    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    <a href="#book" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                </div>
+  </div></div></div>
+
+  <!-- JS: jQuery + Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Smooth scroll for internal links (account for fixed navbar height)
+    $('a[href^="#"]').on('click', function(e){
+      const href = $(this).attr('href');
+      if (!href || href === '#') return;
+      const target = $(href);
+      if (target.length) {
+        e.preventDefault();
+        $('html,body').animate({ scrollTop: target.offset().top - 62 }, 600);
+      }
+    });
+
+    // Navbar color change on scroll + reveal on load
+    function checkNav(){ if ($(window).scrollTop() > 50) $('.navbar').addClass('scrolled'); else $('.navbar').removeClass('scrolled'); }
+    $(window).on('scroll', function(){ checkNav(); revealOnScroll(); toggleBackTop(); });
+    $(document).ready(function(){ checkNav(); revealOnScroll(); });
+
+    // fade-in on scroll
+    function revealOnScroll(){
+      $('.fade-in').each(function(){
+        const top = $(this).offset().top - $(window).height() + 120;
+        if ($(window).scrollTop() > top) $(this).addClass('visible');
+      });
+    }
+
+    // Back to top behavior
+    function toggleBackTop(){ if ($(window).scrollTop() > 300) $('#backTop').addClass('visible'); else $('#backTop').removeClass('visible'); }
+    $('#backTop').on('click', function(){ $('html,body').animate({scrollTop:0}, 600); });
+
+    // Card filter: show/hide by data-type
+    $('.filter-btn').on('click', function(){
+      const f = $(this).data('filter');
+      $('.filter-btn').removeClass('active');
+      $(this).addClass('active');
+      if (f === 'all') {
+        $('.trip-card').closest('.col-md-4').show().css('animation','pop .35s');
+      } else {
+        $('.trip-card').closest('.col-md-4').hide();
+        $('.trip-card').filter(function(){ return $(this).data('type') === f; }).closest('.col-md-4').show().css('animation','pop .35s');
+      }
+    });
+
+    // small pop animation via CSS injection for filter feedback
+    const stylePop = document.createElement('style'); stylePop.innerHTML = '@keyframes pop{ from{transform:scale(.98);opacity:0} to{transform:none;opacity:1} } .trip-card{will-change:transform,opacity}';
+    document.head.appendChild(stylePop);
+
+    // Form validation & success message
+    $('#bookingForm').on('submit', function(e){
+      e.preventDefault();
+      const name = $.trim($(this).find('[name="name"]').val());
+      const email = $.trim($(this).find('[name="email"]').val());
+      const dest = $(this).find('[name="destination"]').val();
+      const date = $(this).find('[name="date"]').val();
+      if (!name || !email || !dest || !date) {
+        if (!$('#formAlert').length) $('<div id="formAlert" class="alert alert-danger mt-3">Please complete required fields.</div>').insertBefore(this).delay(2500).fadeOut(400, function(){ $(this).remove(); });
+        return;
+      }
+      // success - show green message
+      if (!$('#formAlert').length) $('<div id="formAlert" class="alert alert-success mt-3">Booking submitted successfully!</div>').insertBefore(this).delay(2200).fadeOut(400, function(){ $(this).remove(); });
+      this.reset();
+    });
+
+    // small reveal for modal images (if needed)
+    $('#modal-1, #modal-2, #modal-3, #modal-4, #modal-5, #modal-6, #modal-7, #modal-8, #modal-9').on('shown.bs.modal', function(){ /* could lazy-load images here */ });
+
+    // show initial filter = all
+    $(function(){ $('.filter-btn[data-filter="all"]').trigger('click'); });
+
+    // BackTo style show toggle - add/remove 'visible' class
+    $('<style>.backWrap #backTop{opacity:0;transform:translateY(6px);transition:opacity .22s, transform .22s}.backWrap #backTop.visible{opacity:1;transform:none}</style>').appendTo('head');
+  </script>
+</body>
+</html>
